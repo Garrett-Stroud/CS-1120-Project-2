@@ -1,2 +1,2 @@
-# CS-1120-Project-2
+# CS1120_Proj03_Stroud_Degroot
 project 2
