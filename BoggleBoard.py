@@ -34,6 +34,19 @@ class BoggleBoard:
                 print(f'| {self.board[row][col]} |', end=" ")
             print()
             print(border)
+            
+    def print_highlighted(self):
+      
+        
+    
+   
+
+
+
+
+    def get_seed(self,seed):
+        return random.seed(seed)
+
 
     def check_board(self, word):
         # find initial position and run recursion method from there
@@ -94,7 +107,6 @@ class BoggleBoard:
         # Returns False when all fails
         path.pop()
         return False
-
 
 
 
