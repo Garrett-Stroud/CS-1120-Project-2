@@ -11,6 +11,7 @@ class BoggleBoard:
         self.board = []
 
     def create_dice(self):
+        random.seed(self.get_seed(42))
         dice = random.choice(string.ascii_uppercase)
         return dice
 
@@ -27,21 +28,20 @@ class BoggleBoard:
         for row in self.board:
             print(row)
 
+    def get_seed(self,seed):
+        return random.seed(seed)
+
+
     def check_word(self, word):
         # find initial position and run recursion method from there
-        path = [
-            [False,False,False,False],
-                [False,False,False,False],
-                [False,False,False,False],
-                [False,False,False,False]
-        ]
+
         for row in range(4):
             for col in range(4):
-                if self.board[row][col] == word[0]:
+                if self.board[row][col].upper() == word[0]:
+                    path = []
                     if self.boggle_validation(word, 0, row, col,path):
-                        return True
-                    if path:
                         return path
+
         return False
 
 
@@ -56,16 +56,17 @@ class BoggleBoard:
         if row < 0 or row > 3 or col < 0 or col > 3:
             return False
 
+        if (row, col) in path:
+            return False
+
+        path.append((row, col))
+
 
         # Letter validation
         if self.board[row][col] != word[index]:
             return False
 
-        # Return false if square has been visited already
-        if path[row][col]:
-            return False
 
-        path[row][col] = True
 
 
 
@@ -87,7 +88,7 @@ class BoggleBoard:
                 return True
 
         # Returns False when all fails
-        path[row][col] = False
+        path.pop()
         return False
 
 
