@@ -1,5 +1,8 @@
 # Project No.2#
 # Authors: Grace DeGroot and Garrett Stroud
+# Description: The BoggleBoard class represents a 4x4 boggle board. the class has methods to generate a board, print the board, and 
+# check if a given word exists on the board
+
 import random
 import string
 
@@ -109,3 +112,4 @@ class BoggleBoard:
         # Returns False when all fails and remove last element
         path.pop()
         return False
+
