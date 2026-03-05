@@ -19,7 +19,7 @@ def main():
     path = board.check_board(word)
 
     #Checks if the word is on the board, and if it is a palindrone, prints corresponding message.
-    if board.check_board():
+    if board.check_board(word):
         print('Nice Job!')
         check_palindrome(word)
         board.print_highlihgted(path)
